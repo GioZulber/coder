@@ -17,6 +17,7 @@ body {
   justify-content: flex-end; }
   .div-redes .div-redes__icon {
     margin: 0.125rem;
+    margin-top: 0.2125rem;
     width: 1.5625rem; }
     .div-redes .div-redes__icon:hover {
       transform: scale(1.1);
@@ -139,7 +140,8 @@ footer {
   footer ul {
     list-style: none; }
     footer ul h4 {
-      font-size: 1em; }
+      font-size: 1em;
+      font-weight: bolder; }
     footer ul li {
       font-size: 0.8em; }
 
