@@ -1,0 +1,21 @@
+@import "variables";
+
+.navImg {
+    width: 50%;
+}
+
+nav {
+    margin: 0.3125rem;
+    ul {
+        font-weight: bolder;
+    }
+    .buscador {
+        color: $body-color;
+        border: 1px solid $body-color;
+
+        &:hover {
+            background-color: $body-color;
+            transition: all .5s;
+        }
+    }
+}

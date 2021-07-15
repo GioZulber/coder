@@ -1,0 +1,45 @@
+@import "variables";
+
+@mixin form ($display, $flex-flow, $align-items) {
+    display: $display;
+    flex-flow: $flex-flow;
+    align-items: $align-items;
+}
+
+.formulario {
+$blanco: #ffffff;
+$negro: #000000;
+@mixin condicion ($bg-color){
+    background-color: $bg-color;
+    @if $bg-color==$negro {
+        color: $blanco;   
+    }
+    @else if $bg-color==$blanco{
+        color: $negro
+    }
+    
+}
+
+    @include condicion($negro);
+    text-align: center;
+
+    .form {
+        @include form(flex, column wrap, center);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1em;
+
+        .form__input {
+            @include form(flex, column wrap, center);
+        }
+
+        .form__input--color {
+            background-color: $header-color;
+        }
+
+        .form__input--color:hover {
+            background-color: $body-color;
+            color: $header-color;
+            transition: all .7s;
+        }
+    }
+}

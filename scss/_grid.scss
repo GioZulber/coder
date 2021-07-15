@@ -1,0 +1,18 @@
+.footer {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.gridFooter {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 0.3125rem;
+    grid-template-rows: 1fr 1.5625rem;
+    grid-row-gap: 0.9375rem;
+    justify-items: center;
+    align-items: center;
+
+    .gridHijo {
+        margin-top: 1.875rem;
+    }
+
+}

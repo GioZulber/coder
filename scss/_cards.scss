@@ -1,0 +1,36 @@
+@import "variables";
+
+.section {
+    margin: 0.2125rem;
+
+    .section__titulo {
+        text-align: center;
+        font-weight: bolder;
+    }
+}
+
+
+.fila {
+
+    .fila__cards {
+        margin: 1.25rem;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        &:hover{
+            transform: scale(1.05);
+            transition: all 1s;
+        }
+
+        .fila__cards__button {
+            background-color: $header-color;
+
+            &:hover {
+                background-color: $bg-color-fyf;
+                color: $header-color;
+                transition: all .5s;
+            }
+        }
+
+    }
+}

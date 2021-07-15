@@ -1,0 +1,19 @@
+@import "variables";
+
+footer {
+    background-color: $bg-color-fyf;
+    color: $body-color;
+
+    ul {
+        list-style: none;
+
+        h4 {
+            font-size: 1em;
+        }
+
+        li {
+            font-size: 0.8em;
+        }
+    }
+
+}

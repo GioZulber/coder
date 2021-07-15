@@ -1,0 +1,10 @@
+.pagos {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    background-color: $body-color;
+
+    .pagos__img {
+        margin: 0.3125rem;
+    }
+}

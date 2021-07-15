@@ -1,0 +1,69 @@
+@import "variables";
+@import "generales";
+@import "iconos";
+@import "menu";
+@import "cards";
+@import "pagos";
+@import "form";
+@import "grid";
+@import "footer";
+
+
+/* LINKS */
+a {
+    text-decoration: none;
+}
+
+/* LINKS */
+
+/* pag oferta */
+
+.tachado {
+    text-decoration: line-through;
+}
+
+/* Medias queries */
+
+@media only screen and (max-width: 576px) {
+
+    /* menu */
+    .megustaCarrito {
+        margin-top: 0.3125rem;
+    }
+
+    /* menu */
+
+
+    /*footer  */
+    .gridFooter {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        justify-items: flex-start;
+    }
+
+    /* footer */
+}
+
+
+@media only screen and (min-width: 567px) {
+
+    /*menu*/
+    .div-carrito {
+        margin-top: 0.3125rem;
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    /*menu*/
+}
+
+@media only screen and (min-width: 1024px) {
+
+    /* menu */
+    .div-carrito {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    /* menu */
+}
