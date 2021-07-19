@@ -7,20 +7,9 @@
 }
 
 .formulario {
-$blanco: #ffffff;
-$negro: #000000;
-@mixin condicion ($bg-color){
-    background-color: $bg-color;
-    @if $bg-color==$negro {
-        color: $blanco;   
-    }
-    @else if $bg-color==$blanco{
-        color: $negro
-    }
-    
-}
+    background-color: $bg-color-fyf;
+    color: $body-color;
 
-    @include condicion($negro);
     text-align: center;
 
     .form {
