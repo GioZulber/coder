@@ -81,7 +81,7 @@ nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: center; }
-  .fila .fila__cards:hover {
+  .fila .fila__cards .fila__cards__hover:hover {
     transform: scale(1.05);
     transition: all 1s; }
   .fila .fila__cards .fila__cards__button {

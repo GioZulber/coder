@@ -17,9 +17,13 @@
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        &:hover{
-            transform: scale(1.05);
-            transition: all 1s;
+
+        .fila__cards__hover {
+
+            &:hover {
+                transform: scale(1.05);
+                transition: all 1s;
+            }
         }
 
         .fila__cards__button {
