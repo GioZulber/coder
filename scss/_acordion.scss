@@ -1,0 +1,32 @@
+@import "variables";
+
+
+a{
+    text-decoration: none;
+    color: #f8ededb2;
+    &:hover{
+        color: $header-color;
+    }
+}
+
+.seccion{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    flex-flow: column nowrap;
+    .seccion__titulo{
+        text-align: center;
+        font-weight: bolder;
+    } 
+    .seccion__acordion{
+        margin-bottom: 4rem;
+    }         
+}
+
+
+
+
+// prueba
+
+
+

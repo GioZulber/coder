@@ -7,6 +7,7 @@
 @import "form";
 @import "grid";
 @import "footer";
+@import "acordion";
 
 
 /* LINKS */
@@ -33,7 +34,15 @@ a {
     }
 
     /* menu */
+    .carousel{
+        margin-bottom: 2rem;
+    }
+    .cards__center{
+        margin-top: 3rem;
+        margin-left: 2.5rem
+    }
 
+    // carousel
 
     /*footer  */
     .gridFooter {
@@ -67,4 +76,6 @@ a {
     }
 
     /* menu */
+    // carousel
+    
 }

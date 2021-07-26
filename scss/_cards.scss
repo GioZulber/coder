@@ -11,6 +11,8 @@
 
 
 .fila {
+    display: flex;
+    justify-content: center;
 
     .fila__cards {
         margin: 1.25rem;
@@ -19,7 +21,7 @@
         justify-content: center;
 
         .fila__cards__hover {
-
+            width: 12rem;
             &:hover {
                 transform: scale(1.05);
                 transition: all 1s;
@@ -37,4 +39,29 @@
         }
 
     }
+}
+
+// CARROUSEL CARDS
+.carousel{
+    width: 100%;
+    margin-bottom: 2rem;
+    .carousel__col{
+        margin-top: 2rem;
+        // margin-left: 6.5rem;
+        .carousel__col__card--dflex{
+            display: flex;
+            justify-content: space-around;
+            .card__margin{
+                margin: 3rem;
+            }
+        }
+    }
+}
+.carousel__button{
+    background-color: $header-color;
+    &:hover {
+        background-color: $bg-color-fyf;
+        color: $header-color;
+        transition: all .5s;
+    }  
 }

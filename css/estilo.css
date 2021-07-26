@@ -56,6 +56,22 @@ footer .fa-facebook-f {
     transform: scale(1.3);
     transition: all 1s; }
 
+footer .fa-whatsapp {
+  font-size: 1.5em;
+  margin: 0.2125rem;
+  color: #ffffff; }
+  footer .fa-whatsapp:hover {
+    transform: scale(1.3);
+    transition: all 1s; }
+
+footer .fa-envelope {
+  font-size: 1.5em;
+  margin: 0.2125rem;
+  color: #ffffff; }
+  footer .fa-envelope:hover {
+    transform: scale(1.3);
+    transition: all 1s; }
+
 .navImg {
   width: 50%; }
 
@@ -76,20 +92,43 @@ nav {
     text-align: center;
     font-weight: bolder; }
 
-.fila .fila__cards {
-  margin: 1.25rem;
+.fila {
   display: flex;
-  flex-flow: row wrap;
   justify-content: center; }
-  .fila .fila__cards .fila__cards__hover:hover {
-    transform: scale(1.05);
-    transition: all 1s; }
-  .fila .fila__cards .fila__cards__button {
-    background-color: #f4511e; }
-    .fila .fila__cards .fila__cards__button:hover {
-      background-color: #000000;
-      color: #f4511e;
-      transition: all .5s; }
+  .fila .fila__cards {
+    margin: 1.25rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; }
+    .fila .fila__cards .fila__cards__hover {
+      width: 12rem; }
+      .fila .fila__cards .fila__cards__hover:hover {
+        transform: scale(1.05);
+        transition: all 1s; }
+    .fila .fila__cards .fila__cards__button {
+      background-color: #f4511e; }
+      .fila .fila__cards .fila__cards__button:hover {
+        background-color: #000000;
+        color: #f4511e;
+        transition: all .5s; }
+
+.carousel {
+  width: 100%;
+  margin-bottom: 2rem; }
+  .carousel .carousel__col {
+    margin-top: 2rem; }
+    .carousel .carousel__col .carousel__col__card--dflex {
+      display: flex;
+      justify-content: space-around; }
+      .carousel .carousel__col .carousel__col__card--dflex .card__margin {
+        margin: 3rem; }
+
+.carousel__button {
+  background-color: #f4511e; }
+  .carousel__button:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .5s; }
 
 .pagos {
   display: flex;
@@ -145,6 +184,23 @@ footer {
     footer ul li {
       font-size: 0.8em; }
 
+a {
+  text-decoration: none;
+  color: #f8ededb2; }
+  a:hover {
+    color: #f4511e; }
+
+.seccion {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  flex-flow: column nowrap; }
+  .seccion .seccion__titulo {
+    text-align: center;
+    font-weight: bolder; }
+  .seccion .seccion__acordion {
+    margin-bottom: 4rem; }
+
 /* LINKS */
 a {
   text-decoration: none; }
@@ -160,6 +216,11 @@ a {
   .megustaCarrito {
     margin-top: 0.3125rem; }
   /* menu */
+  .carousel {
+    margin-bottom: 2rem; }
+  .cards__center {
+    margin-top: 3rem;
+    margin-left: 2.5rem; }
   /*footer  */
   .gridFooter {
     display: grid;

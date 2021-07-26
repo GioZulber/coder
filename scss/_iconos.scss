@@ -48,8 +48,26 @@ footer{
             transform: scale(1.3);
             transition: all 1s;
         }
-        }
+    }
     .fa-facebook-f{
+        font-size: $font-size/2;
+        margin: 0.2125rem;
+        color: $body-color;
+        &:hover{
+            transform: scale(1.3);
+            transition: all 1s;
+        }
+    }
+    .fa-whatsapp{
+        font-size: $font-size/2;
+        margin: 0.2125rem;
+        color: $body-color;
+        &:hover{
+            transform: scale(1.3);
+            transition: all 1s;
+        }
+    }
+    .fa-envelope{
         font-size: $font-size/2;
         margin: 0.2125rem;
         color: $body-color;
