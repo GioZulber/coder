@@ -114,7 +114,7 @@ nav {
 
 .carousel {
   width: 100%;
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem; }
   .carousel .carousel__col {
     margin-top: 2rem; }
     .carousel .carousel__col .carousel__col__card--dflex {
@@ -184,6 +184,11 @@ footer {
     footer ul li {
       font-size: 0.8em; }
 
+.footer__carrito {
+  position: fixed;
+  bottom: 0%;
+  width: 100%; }
+
 a {
   text-decoration: none;
   color: #f8ededb2; }
@@ -200,6 +205,15 @@ a {
     font-weight: bolder; }
   .seccion .seccion__acordion {
     margin-bottom: 4rem; }
+
+.seccion .seccion__titulo {
+  text-align: center;
+  font-weight: bolder; }
+
+.seccion .seccion__carrito {
+  border-bottom: 1px solid; }
+  .seccion .seccion__carrito .seccion__carrito__p {
+    text-align: center; }
 
 /* LINKS */
 a {

@@ -1,0 +1,14 @@
+@import "variables";
+
+.seccion{
+    .seccion__titulo{
+        text-align: center;
+        font-weight: bolder;
+    }
+    .seccion__carrito{
+        border-bottom: 1px solid;
+        .seccion__carrito__p{
+            text-align: center;
+        }
+    }
+}
