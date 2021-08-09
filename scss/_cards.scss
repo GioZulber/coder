@@ -15,7 +15,7 @@
     justify-content: center;
 
     .fila__cards {
-        margin: 1.25rem;
+        padding: 1.25rem;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
@@ -65,3 +65,47 @@
         transition: all .5s;
     }  
 }
+
+
+//CARDS DE PAGINA DE COMPRA
+
+    .section__compra{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        .section__compra__card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;          
+        }
+    }
+    .section__compra__select{
+        margin: 0.2rem;
+        border: 1px solid black;
+        border-radius: 10%;
+    }
+    .section__btn{
+        background-color: $header-color;
+        width: 100%;
+        &:hover {
+            background-color: $bg-color-fyf;
+            color: $header-color;
+            transition: all .5s;
+        } 
+    }
+
+    .img-compra{
+        width: 18rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+

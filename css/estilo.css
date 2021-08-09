@@ -35,7 +35,8 @@ body {
   flex-flow: row nowrap;
   justify-content: flex-end; }
   .div-carrito .div-carrito__icon {
-    width: 1.5625rem; }
+    width: 1.5625rem;
+    margin-left: 0.3125rem; }
   .div-carrito .div-carrito__icon--margin {
     margin-left: 0.3125rem;
     width: 1.5625rem; }
@@ -45,6 +46,7 @@ footer .fa-instagram {
   margin: 0.2125rem;
   color: #ffffff; }
   footer .fa-instagram:hover {
+    color: #f4511e;
     transform: scale(1.3);
     transition: all 1s; }
 
@@ -53,6 +55,7 @@ footer .fa-facebook-f {
   margin: 0.2125rem;
   color: #ffffff; }
   footer .fa-facebook-f:hover {
+    color: #f4511e;
     transform: scale(1.3);
     transition: all 1s; }
 
@@ -61,6 +64,7 @@ footer .fa-whatsapp {
   margin: 0.2125rem;
   color: #ffffff; }
   footer .fa-whatsapp:hover {
+    color: #f4511e;
     transform: scale(1.3);
     transition: all 1s; }
 
@@ -69,6 +73,7 @@ footer .fa-envelope {
   margin: 0.2125rem;
   color: #ffffff; }
   footer .fa-envelope:hover {
+    color: #f4511e;
     transform: scale(1.3);
     transition: all 1s; }
 
@@ -96,7 +101,7 @@ nav {
   display: flex;
   justify-content: center; }
   .fila .fila__cards {
-    margin: 1.25rem;
+    padding: 1.25rem;
     display: flex;
     flex-flow: row wrap;
     justify-content: center; }
@@ -129,6 +134,31 @@ nav {
     background-color: #000000;
     color: #f4511e;
     transition: all .5s; }
+
+.section__compra {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center; }
+  .section__compra .section__compra__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+
+.section__compra__select {
+  margin: 0.2rem;
+  border: 1px solid black;
+  border-radius: 10%; }
+
+.section__btn {
+  background-color: #f4511e;
+  width: 100%; }
+  .section__btn:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .5s; }
+
+.img-compra {
+  width: 18rem; }
 
 .pagos {
   display: flex;
@@ -232,9 +262,10 @@ a {
   /* menu */
   .carousel {
     margin-bottom: 2rem; }
-  .cards__center {
-    margin-top: 3rem;
-    margin-left: 2.5rem; }
+  .row {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center; }
   /*footer  */
   .gridFooter {
     display: grid;
@@ -248,11 +279,19 @@ a {
     margin-top: 0.3125rem;
     display: flex;
     flex-flow: row nowrap; }
-  /*menu*/ }
+  /*menu*/
+  .row {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center; } }
 
 @media only screen and (min-width: 1024px) {
   /* menu */
   .div-carrito {
     display: flex;
     flex-flow: row nowrap; }
-  /* menu */ }
+  /* menu */
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; } }
