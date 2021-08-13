@@ -12,3 +12,4 @@ Personalmente lo que más me gusto trabajar fue SASS, me simplifico mucho al que
 
 
 ###### Gracias y espero que le guste.
+https://www.linkedin.com/in/giovanni-zulberti/
