@@ -1,11 +1,14 @@
-Proyecto Final del Curso de Desarrollo Web.
+# Bienvenido a mi Proyecto final del curso de Desarrollo Web. 
 
-Repositorio del proyecto.
+Mi nombre es Giovanni Zulberti, tengo 18 años. Y hasta hace un tiempo no tenia no sabia  lo que era el desarrollo web.
 
-Descripcion del sitio web:
-El sitio es de una empresa dedicada a la venta de zapatillas / sneakers.
+Mi idea desde un principio fue hacer una tienda de zapatillas. Este sitio web cuenta con 27 secciones cada una de estas adaptadas a cualquier tipo de dispositivo móvil.
 
-Recursos utilizados:
-Para realizar este sitio utilice, HTML, CSS3, SASS, BOOTSTRAP Y GIT
+## En este proyecto use distintos recursos como:
 
-Desarrollado por Giovanni Zulberti.	
+Para realizar este sitio utilice, HTML, CSS3, SASS, BOOTSTRAP Y GIT. 
+
+Personalmente lo que más me gusto trabajar fue SASS, me simplifico mucho al querer trabajar en la estética del sitio. Y con Bootstrap tengo un amor, odio, es complicado el personalizarlo como queres pero al hacerlo queda todo muy lindo.
+
+
+###### Gracias y espero que le guste.
