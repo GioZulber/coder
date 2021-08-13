@@ -24,7 +24,7 @@ body {
       transition: all 1s; }
   .div-redes .div-redes__icon--margin {
     margin: 0.3125rem;
-    width: 1.5625rem; }
+    width: 1.75rem; }
     .div-redes .div-redes__icon--margin:hover {
       transform: scale(1.1);
       transition: all 1s; }
@@ -139,10 +139,12 @@ nav {
   display: flex;
   flex-flow: row wrap;
   justify-content: center; }
-  .section__compra .section__compra__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
+  .section__compra .section__div__compra {
+    margin: 3rem; }
+    .section__compra .section__div__compra .section__compra__card {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
 
 .section__compra__select {
   margin: 0.2rem;
@@ -285,7 +287,7 @@ a {
     flex-flow: column wrap;
     justify-content: center; } }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1023px) {
   /* menu */
   .div-carrito {
     display: flex;

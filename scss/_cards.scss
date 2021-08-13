@@ -71,12 +71,15 @@
 
     .section__compra{
         display: flex;
-        flex-flow: row wrap;
+        flex-flow:   row wrap;
         justify-content: center;
-        .section__compra__card{
-            display: flex;
-            flex-direction: column;
-            align-items: center;          
+        .section__div__compra{
+            margin: 3rem;
+            .section__compra__card{
+                display: flex;
+                flex-direction: column;
+                align-items: center;          
+            }
         }
     }
     .section__compra__select{
