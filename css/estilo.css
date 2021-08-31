@@ -191,6 +191,27 @@ nav {
       color: #f4511e;
       transition: all .7s; }
 
+.formulario-pedidos {
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center; }
+  .formulario-pedidos .form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em; }
+    .formulario-pedidos .form .form__input {
+      display: flex;
+      flex-flow: column wrap;
+      align-items: center; }
+    .formulario-pedidos .form .form__input--color {
+      background-color: #f4511e; }
+    .formulario-pedidos .form .form__input--color:hover {
+      background-color: #000000;
+      color: #f4511e;
+      transition: all .7s; }
+
 .footer {
   font-family: 'Montserrat', sans-serif; }
 

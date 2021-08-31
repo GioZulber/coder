@@ -32,3 +32,30 @@
         }
     }
 }
+
+
+
+.formulario-pedidos {
+    background-color: $body-color;
+    color: $bg-color-fyf;
+    text-align: center;
+
+    .form {
+        @include form(flex, column wrap, center);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+        .form__input {
+            @include form(flex, column wrap, center);
+        }
+
+        .form__input--color {
+            background-color: $header-color;
+        }
+
+        .form__input--color:hover {
+            background-color: $bg-color-fyf;
+            color: $header-color;
+            transition: all .7s;
+        }
+    }
+}
