@@ -81,6 +81,8 @@
               <a class="nav-link" href="oferta.html">Ofertas</a>
             </li>
             <li class="nav-item">
+                <a class= "nav-link active" href="pedidos.html">Pedidos</a>
+              </li>
           </ul>
           <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Buscador" aria-label="Search">
@@ -104,7 +106,7 @@
 
   
   <section class="formulario-pedidos">
-    <h5>Ingrese su pedido:</h5>
+    <h5 class="titulo-pedidos">Ingrese su pedido:</h5>
     <form class="form" id="formulario">
       <div class="mb-3 form__input">
         <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
@@ -142,8 +144,21 @@
       <button type="submit" class="btn form__input--color" id="enviar">Añadir Pedido</button>
     </form>
 
-    <h5>Sus pedidos: </h5>
-    <div id="sus-pedidos"></div>
+    <h5 class="titulo-pedidos">Sus pedidos: </h5>
+    <div id="sus-pedidos" class="div-pedidos">
+
+    </div>
+    
+    <form class="mb-3 buscador-filter" id="buscadorFilter">
+      <h5>Busque su pedido por marca:</h5>
+      <input type="text" class="form-control" id="filtrados">
+      <button type="submit" class="btn" id="buscar">Buscar</button>
+    </form>
+
+    <div id="pedidos-filtrados" class="div-filtrados">
+      
+
+    </div>
       
   </section>
 
@@ -289,7 +304,7 @@
         </div>
       </div>
   </section>
-  <footer class="gridFooter footer footer__carrito">
+  <footer class="gridFooter footer">
 
 
     <div class="gridHijo">

@@ -1,5 +1,5 @@
-class Pedidos{
-    constructor(email, marca, modelo, direccion, talle){
+class Pedidos {
+    constructor(email, marca, modelo, direccion, talle) {
         this.email = email;
         this.marca = marca;
         this.modelo = modelo;
@@ -14,13 +14,12 @@ let marca = document.querySelector("#marca");
 let modelo = document.querySelector("#modelo");
 let direccion = document.querySelector("#direccion");
 let talle = document.querySelector("#talle");
-let arrayPedidos =[];
-function validarDatos (e){
+
+function validarDatos(e) {
+    let arrayPedidos = [];
     e.preventDefault();
-    if (email.value == "" || marca.value == "" || modelo.value == "" || direccion.value == ""){
+    if (email.value == "" || marca.value == "" || modelo.value == "" || direccion.value == "") {
         alert("Error al ingresar los datos, complete todos los campos correctamente.")
-    }else if (talle.value == NaN){
-        alert("Ingrese un talle valido")
     }
     arrayPedidos.push(new Pedidos(email.value, marca.value, modelo.value, direccion.value, talle.value));
     arrayPedidos.forEach(pedido => {
@@ -28,7 +27,31 @@ function validarDatos (e){
         let ul = document.createElement("ul");
         ul.innerHTML = `<li> Zapatilla: ${pedido.marca} ${pedido.modelo}</li>
                         <li> Talle: ${pedido.talle}</li> 
-                        <li> Direccion: ${pedido.direccion}</li>`
+                        <li> Direccion: ${pedido.direccion}</li>`;
         divPedidos.appendChild(ul)
+        console.log(`Correo Electronico: ${pedido.email}`);
+    });
+}
+
+let buscadorFilter = document.querySelector("#buscadorFilter");
+buscadorFilter.addEventListener("submit", pedidosFilter);
+let pedidosBuscador = document.querySelector("#filtrados");
+
+function pedidosFilter(e) {
+    e.preventDefault();
+    let arrayPedidos = [];
+    if (marca.value == "") {
+        alert("Error al ingresar marca. Por favor ingrese una marca valida.")
+    }
+    let productoFiltrado = arrayPedidos.filter(elemento => elemento.marca == marca.value);
+    productoFiltrado.forEach(pedido => {
+        let divFiltrados = document.getElementById("pedidos-filtrados");
+        let ul = document.createElement("ul");
+        ul.innerHTML = `<li> Zapatilla: ${pedido.marca} ${pedido.modelo}</li>
+                        <li> Talle: ${pedido.talle}</li> 
+                        <li> Direccion: ${pedido.direccion}</li>`;
+        divFiltrados.appendChild(ul)
+        console.log(`Correo Electronico: ${pedido.email}`)
     })
+
 }

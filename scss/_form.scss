@@ -9,7 +9,6 @@
 .formulario {
     background-color: $bg-color-fyf;
     color: $body-color;
-
     text-align: center;
 
     .form {
@@ -38,11 +37,10 @@
 .formulario-pedidos {
     background-color: $body-color;
     color: $bg-color-fyf;
-    text-align: center;
+    
 
     .form {
         @include form(flex, column wrap, center);
-        font-family: 'Montserrat', sans-serif;
         font-size: 1.2em;
         .form__input {
             @include form(flex, column wrap, center);
@@ -57,5 +55,31 @@
             color: $header-color;
             transition: all .7s;
         }
+    }
+}
+.div-pedidos{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.titulo-pedidos{
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.buscador-filter{
+    @include form(flex, column wrap, center); 
+    #filtrados{
+        margin-bottom: 1rem;
+        width: auto;
+    } 
+    #buscar{
+        background-color: $header-color;
+    }
+    #buscar:hover{
+        background-color: $bg-color-fyf;
+        color: $header-color;
+        transition: all .7s;
     }
 }

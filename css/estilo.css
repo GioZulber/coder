@@ -193,13 +193,11 @@ nav {
 
 .formulario-pedidos {
   background-color: #ffffff;
-  color: #000000;
-  text-align: center; }
+  color: #000000; }
   .formulario-pedidos .form {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em; }
     .formulario-pedidos .form .form__input {
       display: flex;
@@ -211,6 +209,30 @@ nav {
       background-color: #000000;
       color: #f4511e;
       transition: all .7s; }
+
+.div-pedidos {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center; }
+
+.titulo-pedidos {
+  text-align: center;
+  margin-top: 2rem; }
+
+.buscador-filter {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center; }
+  .buscador-filter #filtrados {
+    margin-bottom: 1rem;
+    width: auto; }
+  .buscador-filter #buscar {
+    background-color: #f4511e; }
+  .buscador-filter #buscar:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .7s; }
 
 .footer {
   font-family: 'Montserrat', sans-serif; }
