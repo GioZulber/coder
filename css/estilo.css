@@ -234,6 +234,12 @@ nav {
     color: #f4511e;
     transition: all .7s; }
 
+.div-filtrados {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center; }
+
 .footer {
   font-family: 'Montserrat', sans-serif; }
 
