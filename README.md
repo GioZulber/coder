@@ -10,6 +10,7 @@ Para realizar este sitio utilice, HTML, CSS3, SASS, BOOTSTRAP Y GIT.
 
 Personalmente lo que más me gusto trabajar fue SASS, me simplifico mucho al querer trabajar en la estética del sitio. Y con Bootstrap tengo un amor, odio, es complicado el personalizarlo como queres pero al hacerlo queda todo muy lindo.
 
+Actualmente estoy implementando JavaScript. 
 
 ###### Gracias y espero que le guste.
 https://www.linkedin.com/in/giovanni-zulberti/
