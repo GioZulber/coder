@@ -68,7 +68,7 @@ $.ajax(settings).done(function (response) {
 				</div>
       		</div>
 			`)	
-		})
+		});
 	//Filtre en categoria para mujer. 5 pares, 3 dañados, asi que los tuve que cambiar
 	let arrayMujeres = arrayDatos.filter(elemento => elemento.retailPrice >= 90 && elemento.retailPrice <= 120)
 		console.log(arrayMujeres);
@@ -124,7 +124,7 @@ $.ajax(settings).done(function (response) {
 				</div>
       		</div>
 			`)
-		})
+		});
 
 
 	//Aca empiezo a filtrar por marca
