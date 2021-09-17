@@ -10,18 +10,39 @@ class Pedidos {
 }
 let pedidos = JSON.parse(localStorage.getItem("arrayPedidos"));
 
-function rellenarDatos() {
+function rellenarDatos() {    
     if (pedidos != null) {
         pedidos.forEach(pedido => {
-            $('#sus-pedidos').append(`<ul><li> Zapatilla: ${pedido.marca} ${pedido.modelo}</li>
-            <li> Talle: ${pedido.talle}</li> 
-            <li> Direccion: ${pedido.direccion}</li></ul>`);
-            console.log(`Correo Electronico: ${pedido.email}`);
+            $('#tablaPedidos').append(`
+                <tr> 
+                    <td> ${pedido.marca} ${pedido.modelo} </td>
+                    <td> ${pedido.talle}</td>
+                    <td> ${pedido.direccion}</td>
+                </tr>`);
+            console.log(`Correo Electronico: ${pedido.email}`
+            );
         });
-    }
+            //Antes usaba esto en lista pero no me gustaba como quedaba y decidi cambiarlo por una tabla.
+        
+    };
 }
+//En este evento estoy haciendo que la lista se oculte(si es que ya hay pedidos guardados en el LocalStorage), ocultandola con un "display: none"
+//Para que al hacer click, aparezca y al volver a hacer click vuelva a desaparecer.
+
+$("#mostrarTabla").css("display", "none")
+$("#mostrar").click(() => {
+    if ($("#mostrar").html() == "Mostrar pedidos") {
+        $("#mostrar").html("Esconder pedidos")
+        $("#mostrarTabla").fadeIn("slow")
+    } else {
+        $("#mostrarTabla").fadeOut("slow")
+        $("#mostrar").html("Mostrar pedidos")
+    }
+});
+
 if (pedidos != null) {
     rellenarDatos();
+    
 }
 //Llamamos a todos los inputs
 let email = $('#exampleInputEmail1');
@@ -46,9 +67,12 @@ function validarDatos(e) {
     }else{
         arrayPedidos.push(new Pedidos(email.val(), marca.val(), modelo.val(), direccion.val(), talle.val()));
     localStorage.setItem("arrayPedidos", JSON.stringify(arrayPedidos))
-    $('#sus-pedidos').append(`<ul><li> Zapatilla: ${marca.val()} ${modelo.val()}</li>
-    <li> Talle: ${talle.val()}</li> 
-    <li> Direccion: ${direccion.val()}</li></ul>`);
+    $('#tablaPedidos').append(`
+                <tr class="mostrarTabla"> 
+                    <td> ${marca.val()} ${modelo.val()} </td>
+                    <td> ${talle.val()}</td>
+                    <td> ${direccion.val()}</td>
+                </tr>`);
     console.log(`Correo Electronico: ${email.val()}`);
     }
     email.val("");
@@ -68,33 +92,27 @@ $('#buscar').click(pedidosFilter)
 //Esta funcion busca los pedidos por marca
 function pedidosFilter(e) {
     e.preventDefault();
-    $('#pedidosFiltrados').html("");
+    $('#tablaFilter').html("");
     if (pedidosBuscador.val() == "") {
         alert("Error al ingresar marca. Por favor ingrese una marca valida.")
     } else if (pedidosBuscador.val().toUpperCase() == "JORDAN" || pedidosBuscador.val().toUpperCase() == "ADIDAS" || pedidosBuscador.val().toUpperCase() == "NIKE" || pedidosBuscador.val().toUpperCase() == "PUMA") {
         let productoFiltrado = pedidos.filter(producto => producto.marca.toUpperCase() == pedidosBuscador.val().toUpperCase());
         productoFiltrado.forEach(filtrado => {
-            $('#pedidosFiltrados').append(`<ul> <li> Zapatilla: ${filtrado.marca} ${filtrado.modelo}</li>
-                                                <li> Talle: ${filtrado.talle}</li> 
-                                                <li> Direccion: ${filtrado.direccion}</li> </ul>`);
+            $("#tablaFilter").append(`
+                    <tr class="mostrarTabla"> 
+                        <td> ${filtrado.marca} ${filtrado.modelo} </td>
+                        <td> ${filtrado.talle}</td>
+                        <td> ${filtrado.direccion}</td>
+                    </tr>`);
             console.log(`Correo Electronico: ${filtrado.email}`);
         })
-    }else{
-        $('#pedidosFiltrados').html(`<p>No tiene ningun pedido de ${pedidosBuscador.val()}`)
-    }
+    } else{
+        
+        $("#tablaFilter").append(`
+                    <tr class="mostrarTabla"> 
+                        <td> </td>
+                        <td> No tiene ningun pedido de ${pedidosBuscador.val()} </td>
+                        <td> </td>
+                    </tr>`);
+    }       
 }
-
-// $(document).ready(function () {
-/*
-let formulario = document.querySelector('#formulario');
-formulario.addEventListener("submit", validarDatos);
-*/
-//Utilizamos metodo submit
-
-/*
-let buscadorFilter = document.querySelector("#buscadorFilter");
-buscadorFilter.addEventListener("submit", pedidosFilter);
-*/
-//Utilizamos metodo submit
-
-// })

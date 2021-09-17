@@ -62,11 +62,28 @@
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    .tablaPedidos{
+        width: 60%;
+    }
 }
 .titulo-pedidos{
     text-align: center;
     margin-top: 2rem;
 }
+
+
+
+
+.mostrar{
+    background-color: $header-color;
+    margin: 1rem;
+    &:hover{
+        background-color: $bg-color-fyf;
+        color: $header-color;
+        transition: all .7s;
+    }
+}
+
 
 .buscador-filter{
     @include form(flex, column wrap, center); 
@@ -84,10 +101,16 @@
     }
 }
 
+
+
+
 .div-filtrados{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    .tablaFilter{
+        width: 60%;
+    }
     
 }

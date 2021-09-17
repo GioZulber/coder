@@ -215,10 +215,20 @@ nav {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center; }
+  .div-pedidos .tablaPedidos {
+    width: 60%; }
 
 .titulo-pedidos {
   text-align: center;
   margin-top: 2rem; }
+
+.mostrar {
+  background-color: #f4511e;
+  margin: 1rem; }
+  .mostrar:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .7s; }
 
 .buscador-filter {
   display: flex;
@@ -239,6 +249,8 @@ nav {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center; }
+  .div-filtrados .tablaFilter {
+    width: 60%; }
 
 .footer {
   font-family: 'Montserrat', sans-serif; }
