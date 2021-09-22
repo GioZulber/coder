@@ -26,6 +26,7 @@
                 transform: scale(1.05);
                 transition: all 1s;
             }
+            
         }
 
         .fila__cards__button {
@@ -40,7 +41,9 @@
 
     }
 }
-
+.pBlanco{
+    display: none;
+}
 // CARROUSEL CARDS
 .carousel{
     width: 100%;
