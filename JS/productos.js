@@ -272,7 +272,7 @@ $.ajax(settings).done(function (response) {
 		});
 		//Lo guardamos en el storage
 		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
-		window.location.href="/pages/detalles.html";
+		window.location.href="./pages/detalles.html";
 		
 		console.log(arrayComprar);	
 	});
