@@ -206,7 +206,7 @@ $.ajax(settings).done(function (response) {
 
 	//Carrusel de cards
 	//Em cada filter quise que queden 3 pares.
-	let arrayCarrusel = arrayDatos.filter(elemento => elemento.retailPrice == 200 && elemento.media.smallImageUrl != null);
+	let arrayCarrusel = arrayDatos.filter(elemento => elemento.retailPrice == 200 && elemento.media.smallImageUrl != null && elemento.name != "Winterized Archaeo Brown");
 		console.log(arrayCarrusel);
 		arrayCarrusel.forEach(elemento =>{
 			$('#cardsCarrusel').append(`
@@ -217,7 +217,7 @@ $.ajax(settings).done(function (response) {
 				<h5 class="card-title"> ${elemento.title}</h5>
 				<p class="card-text">$${elemento.retailPrice}</p>
 				<p class="card-text pBlanco">${elemento.colorway}</p>
-				<a href="#" class="btn carousel__button elementoId">Ver detalles.</a>
+				<a href="#" class="btn carousel__button elementoIdPages elementoIdMarcas">Ver detalles.</a>
 			  </div>
 			</div>
 		  </div>`)
@@ -233,12 +233,12 @@ $.ajax(settings).done(function (response) {
 				<h5 class="card-title"> ${elemento.title}</h5>
 				<p class="card-text">$${elemento.retailPrice}</p>
 				<p class="card-text pBlanco">${elemento.colorway}</p>
-				<a href="#" class="btn carousel__button elementoId">Ver detalles.</a>
+				<a href="#" class="btn carousel__button elementoIdPages elementoIdMarcas">Ver detalles.</a>
 			  </div>
 			</div>
 		  </div>`)
 		})	
-	let arrayCarrusel2 = arrayDatos.filter(elemento => elemento.retailPrice == 110 && elemento.media.smallImageUrl != null && elemento.brand != "Converse" && elemento.brand != "Puma");
+	let arrayCarrusel2 = arrayDatos.filter(elemento => elemento.retailPrice == 110 && elemento.media.smallImageUrl != null && elemento.brand != "Converse" && elemento.brand != "Puma" && elemento.colorway != "White/Amarillo" && elemento.colorway != "Black/White-Black" );
 		console.log(arrayCarrusel2);
 		arrayCarrusel2.forEach(elemento =>{
 			$('#cardsCarrusel2').append(`
@@ -249,7 +249,7 @@ $.ajax(settings).done(function (response) {
 				<h5 class="card-title"> ${elemento.title}</h5>
 				<p class="card-text">$${elemento.retailPrice}</p>
 				<p class="card-text pBlanco">${elemento.colorway}</p>
-				<a href="#" class="btn carousel__button elementoId">Ver detalles.</a>
+				<a href="#" class="btn carousel__button elementoIdPages elementoIdMarcas">Ver detalles.</a>
 			  </div>
 			</div>
 		  </div>`)
