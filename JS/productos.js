@@ -44,7 +44,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -62,7 +62,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -81,7 +81,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -99,7 +99,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -119,9 +119,9 @@ $.ajax(settings).done(function (response) {
           			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
 					<div class="card-body">
 						<h5 class="card-title"> ${elemento.title} </h5>
-						<p class="card-text"><span class="tachado">$${elemento.retailPrice + 25}</span> $${elemento.retailPrice}  </p>
+						<p class="card-text"><span class="tachado">$${elemento.retailPrice + 25}</span> $${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdOferta">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -143,7 +143,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -161,7 +161,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -179,7 +179,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -197,7 +197,7 @@ $.ajax(settings).done(function (response) {
 						<h5 class="card-title"> ${elemento.title} </h5>
 						<p class="card-text">$${elemento.retailPrice}</p>
 						<p class="card-text pBlanco">${elemento.colorway}</p>
-						<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
 					</div>
 				</div>
       		</div>
@@ -276,7 +276,63 @@ $.ajax(settings).done(function (response) {
 		
 		console.log(arrayComprar);	
 	});
-	//Declaramos al cardsComprar el array arrayComrpar
+
+	$('.elementoIdPages').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+
+	$('.elementoIdOferta').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerHTML,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	$('.elementoIdMarcas').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="../detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	//Declaramos al cardsComprar el arrayComrpar
 	let cardsComprar = JSON.parse(localStorage.getItem("arrayComprar"));
 	//Una vez que el usuario clicke el par que quiera se creara una card para poder añadirlo al carro
 	cardsComprar.forEach(elemento => {
@@ -304,7 +360,7 @@ $.ajax(settings).done(function (response) {
               </div>
 		`)
 		
-	})
+	});
 	
 });
 
