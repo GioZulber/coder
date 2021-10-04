@@ -390,10 +390,10 @@ $.ajax(settings).done(function (response) {
 		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
 		let arrayCarrito;
 		if(!carrito){
-			carrito = [];
+			arrayCarrito = [];
 		}else{
 			arrayCarrito = carrito;	
-		};				
+		};					
 		// Añado el contenido de la card al arrayCarrito
 		arrayCarrito.push({
 			//Traigo lo que necesito de la card
@@ -457,6 +457,15 @@ $.ajax(settings).done(function (response) {
 		localStorage.setItem("arrayCarro", JSON.stringify(carrito));
 		precioTotal()		
 	};
+	//Creo el evento para vaciar el carrito
+	$(".vaciarCarrito").click(vaciarCarro);
+	function vaciarCarro() {
+		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+		carrito = [];
+		$("#divCarrito").html("");
+		localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
+		precioTotal()
+	}
 	//Creo el evento click para eliminar un producto
 	$(".buttonBorrar").click(eliminarProducto);
 	//Esta funcion permite que al clickear la X elimina el producto seleccionado

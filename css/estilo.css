@@ -312,7 +312,7 @@ a {
     border-bottom: 1px solid #000000; }
 
 .seccion .carritoProductos {
-  padding: 20px 0px; }
+  padding: 1.25rem 0rem; }
 
 .seccion #productosCarrito {
   display: flex;
@@ -320,22 +320,41 @@ a {
   flex-wrap: nowrap; }
 
 .seccion .carritoImg {
-  max-width: 80px;
-  border-radius: 20px; }
+  max-width: 5rem;
+  border-radius: 1.25rem; }
 
 .seccion .cantidad {
-  max-width: 45px;
+  max-width: 2.8125rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background: #eee;
-  padding: 5px; }
+  padding: 0.3125rem; }
 
 .seccion .carritoTotal {
-  min-height: 96px; }
+  min-height: 6rem; }
+
+.seccion .precioFinal {
+  margin: 0.625rem; }
 
 .comprarButton {
-  background-color: #f4511e; }
+  background-color: #f4511e;
+  margin: 0.625rem; }
   .comprarButton:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .5s; }
+
+.vaciarCarrito {
+  background-color: #f4511e;
+  margin: 0.625rem; }
+  .vaciarCarrito:hover {
+    background-color: #000000;
+    color: #f4511e;
+    transition: all .5s; }
+
+.botonModal {
+  background-color: #f4511e; }
+  .botonModal:hover {
     background-color: #000000;
     color: #f4511e;
     transition: all .5s; }
