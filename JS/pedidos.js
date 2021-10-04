@@ -22,7 +22,7 @@ function rellenarDatos() {
             console.log(`Correo Electronico: ${pedido.email}`
             );
         });
-            //Antes usaba esto en lista pero no me gustaba como quedaba y decidi cambiarlo por una tabla.
+            
         
     };
 }
@@ -80,7 +80,6 @@ function validarDatos(e) {
     modelo.val("");
     direccion.val("");
 }
-/* Hasta acá es lo que yo hice y como lo resolví! */
 //Con esta funcion creamos la lista en el html
 ///LLamamos al input que funciona como buscador
 let pedidosBuscador = $('#filtrados');

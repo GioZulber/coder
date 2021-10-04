@@ -55,13 +55,18 @@
             display: flex;
             justify-content: space-around;
             .card__margin{
+                font-size: 0.7rem;
                 margin: 3rem;
+            }
+            .h6-card{
+                font-size: 0.7rem;
             }
         }
     }
 }
 .carousel__button{
     background-color: $header-color;
+    font-size: 1em;
     &:hover {
         background-color: $bg-color-fyf;
         color: $header-color;

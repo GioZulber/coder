@@ -6,9 +6,46 @@
         font-weight: bolder;
     }
     .seccion__carrito{
-        border-bottom: 1px solid;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         .seccion__carrito__p{
             text-align: center;
         }
+        .seccion__carrito__div{
+            border-bottom: 1px solid $bg-color-fyf;
+        }
     }
+    .carritoProductos{
+        padding: 20px 0px;
+    }
+    #productosCarrito{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    };
+    .carritoImg{
+        max-width: 80px;
+        border-radius: 20px;
+    }
+    .cantidad {
+        max-width: 45px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background: #eee;
+        padding: 5px;
+    }
+    .carritoTotal{
+        min-height: 96px;
+    }
+}
+  
+.comprarButton{
+    background-color: $header-color;
+
+        &:hover {
+            background-color: $bg-color-fyf;
+            color: $header-color;
+            transition: all .5s;
+        }  
 }

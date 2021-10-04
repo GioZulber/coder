@@ -1,292 +1,517 @@
-//Esto es para acordarme de lo visto en clase
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://v1-sneakers.p.rapidapi.com/v1/sneakers?limit=70",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "v1-sneakers.p.rapidapi.com",
+		"x-rapidapi-key": "aac0ac2a5bmsh659049576fd54bcp1b035fjsn88bfa4a855c9"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+	console.log(response);
+	let arrayDatos = response.results;
+
+	//Filtre las mas caras.
+	let arrayExpensive = arrayDatos.filter(elemento => elemento.retailPrice >= 190 && elemento.media.smallImageUrl != null);
+		// console.log(arrayExpensive);
+		//Ahora voy a usar jQuery para cargar las cards desde JS
+		arrayExpensive.forEach(elemento => {
+			$("#divCardsIndex").append(`
+				<div class="col fila__cards">
+					<div class="card fila__cards__hover" style="width: 18rem;">
+						  <img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+						<div class="card-body">
+							<h6 class="card-title"> ${elemento.title} </h6>					
+							<p class="card-text">$${elemento.retailPrice}</p>
+							<p class="card-text pBlanco">${elemento.colorway}</p>
+							<a href="#" class="btn fila__cards__button elementoId">Ver detalles.</a>
+						</div>
+					</div>
+				  </div>
+				`)		
+		});
+	//Filtre por precio mayor a 190 y por genero de hombre. 12 pares
+    let arrayHombres = arrayDatos.filter(elemento => elemento.retailPrice >= 180 && elemento.gender == "men" && elemento.media.smallImageUrl != null);	 	
+		// console.log(arrayHombres);
+		arrayHombres.forEach(elemento => {
+			$("#divCardsHombre").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)	
+		 });
+	//Filtre en categoria para niños pequeños. 3 pares 
+	let arrayToddler = arrayDatos.filter(elemento => elemento.gender == "toddler" && elemento.media.smallImageUrl != null);		
+		// console.log(arrayToddler);
+		arrayToddler.forEach(elemento => {
+			$("#divCardsChild").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
+
+	//Filtre en categoria para niños. 5 pares
+	let arrayChild = arrayDatos.filter(elemento => elemento.gender == "child" && elemento.media.smallImageUrl != null);
+		// console.log(arrayChild);
+		arrayChild.forEach(elemento => {
+			$("#divCardsChild").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)	
+		});
+	//Filtre en categoria para mujer. 5 pares, 3 dañados, asi que los tuve que cambiar
+	let arrayMujeres = arrayDatos.filter(elemento => elemento.retailPrice >= 90 && elemento.retailPrice <= 120 && elemento.media.smallImageUrl != null)		
+		// console.log(arrayMujeres);
+		arrayMujeres.forEach(elemento => {
+			$("#divCardsMujer").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)	
+		});
 
 
-// //Definimos array general
-// let listaTareas = [];
-
-// //creamos el objeto tarea
-// class Tarea {
-//     constructor(id, nombre, descripcion) {
-//         this.id = id;
-//         this.nombre = nombre;
-//         this.descripcion = descripcion;
-//     }
-
-//     toString() {
-//         //devolvemos nuestro objeto en formato json
-//         return JSON.stringify(this);
-//     }
-// }
-// //contador para usar de ID
-// let contador = 0;
-
-// function agregarTarea(evento) {
-//     //evento.preventDefault();
-//     // forma 1 de traerlo
-//     let nombre = $('#nombre');
-//     //Forma 2
-//     // let nombre = $('form #formTareas #nombre')
-//     let descripcion = $('#descripcion');
-
-//     // En vez de utilizar la propiedad value del input utilizamos un metodo val()
-//     //Validamos que nombre no este vacio
-//     if (nombre.val() == "") {
-//         //si esta vacio sale y muestra un alert
-//         alert("Ingresar Nombre valido");
-//         return;
-//     }
-
-//     //Validamos que descripcion no este vacio
-//     if (descripcion.val() == "") {
-//         //si esta vacio sale y muestra un alert
-//         alert("Ingresar Descripcion valido");
-//         return;
-//     }
-
-//     console.log(`Nombre: ${nombre.val()} \n Descripcion: ${descripcion.val()}`);
-
-//     //agregamos objeto Tarea
-//     listaTareas.push(new Tarea(++contador, nombre.val(), descripcion.val()));
-
-//     //recuperamos el elemento tabla
-//     // let table = document.getElementById("tabla-tareas");
-
-//     //creamos el Table ROW Element
-//     // let tr = document.createElement("tr");
-//     //Le cargamos los table data
-//     // tr.innerHTML = `<td>${contador}</td>\n
-//     // <td>${nombre.val()}</td>\n
-//     // <td>${descripcion.val()}</td>`;
-//     //agregamos a la estructura table
-//     // table.appendChild(tr);
-
-//     //METODOS NUEVO
-//     //CON EL METODO APPEND SE AGREGA AL FINAL DE DONDE QUEREMOS
-//     $('#tabla-tareas').append(`<tr><td>${contador}</td>\n
-//                                     <td>${nombre.val()}</td>\n
-//                                     <td>${descripcion.val()}</td>
-//                                     </tr>`);
-//     //CON EL METODO PREPEND SE AGREGA AL PRINCIPIO, ARRIBA DE DODNE QUEREMOS
-//     // $('#tabla-tareas').prepend(`<tr><td>${contador}</td>\n
-//     //                             <td>${nombre.val()}</td>\n
-//     //                             <td>${descripcion.val()}</td></tr>`
-//     // );
-//     //Limpiamos lso valores de los inputs
-//     nombre.val("");
-//     descripcion.val("");
-
-// }
+	
+		
+	//Filtre las mas baratas. 8 pares
+	let arrayCheap = arrayDatos.filter(elemento => elemento.retailPrice <=80 && elemento.retailPrice >= 50 && elemento.media.smallImageUrl != null);	
+		// console.log(arrayCheap);
+		arrayCheap.forEach(elemento => {
+			$("#divCardsOferta").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice - 15}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdPages">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
 
 
-// //Funcion para guardar nuestro array en storage
-// function guardarLista() {
-//     localStorage.setItem("listaTareas", JSON.stringify(listaTareas));
-//     console.log("La lista se ha guardado con " + listaTareas.length + " tareas:");
-//     for (tarea of listaTareas) {
-//         console.log(tarea.toString());
-//     }
-// }
+	//Aca empiezo a filtrar por marca
 
-// $(document).ready(function () {
+	//Filtre por marca nike y que el precio sea menor a 120. 8 pares
+	let arrayNike = arrayDatos.filter(elemento => elemento.brand == "Nike" && elemento.retailPrice <= 140 && elemento.media.smallImageUrl != null);
+		// console.log(arrayNike);
+		arrayNike.forEach(elemento => {
+			$("#divCardsNike").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
+	//Filtre por Marca Jordan y que su valor sea mayor a $100.  
+	let arrayJordan = arrayDatos.filter(elemento => elemento.brand == "Jordan" && elemento.retailPrice >= 100 && elemento.media.smallImageUrl != null);
+		// console.log(arrayJordan);
+		arrayJordan.forEach(elemento => {
+			$("#divCardsJordan").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
+	//Filtre por marca adidas. 5 pares
+	let arrayAdidas = arrayDatos.filter(elemento => elemento.brand == "adidas" && elemento.media.smallImageUrl != null);
+		// console.log(arrayAdidas);
+		arrayAdidas.forEach(elemento => {
+			$("#divCardsAdidas").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
+	//Filtre por marca Puma. 5 pares
+	let arrayPuma = arrayDatos.filter(elemento => elemento.brand == "Puma" && elemento.media.smallImageUrl != null);
+		// console.log(arrayPuma);
+		arrayPuma.forEach(elemento => {
+			$("#divCardsPuma").append(`
+			<div class="col fila__cards">
+        		<div class="card fila__cards__hover" style="width: 12rem;">
+          			<img src= ${elemento.media.smallImageUrl} class="card-img-top" alt= ${elemento.shoe}>
+					<div class="card-body">
+						<h6 class="card-title"> ${elemento.title} </h6>
+						<p class="card-text">$${elemento.retailPrice}</p>
+						<p class="card-text pBlanco">${elemento.colorway}</p>
+						<a href="#" class="btn fila__cards__button elementoIdMarcas">Ver detalles.</a>
+					</div>
+				</div>
+      		</div>
+			`)
+		});
 
-//     // let boton = document.getElementById("boton");  
-//     // boton.addEventListener("click", agregarTarea);
-//     //Remplazo de evento por .on de jQuery
-//     $('#boton').on('click', agregarTarea);
-//     //capturamos evento click de guardar
-//     // let btnGuardar = document.getElementById('btnGuardar');
-//     // btnGuardar.addEventListener("click", guardarLista);
-//     $('btnGuardar').on('click', guardarLista)
+	//Carrusel de cards
+	//Em cada filter quise que queden 3 pares.
+	let arrayCarrusel = arrayDatos.filter(elemento => elemento.retailPrice == 200 && elemento.media.smallImageUrl != null && elemento.brand != "adidas");
+		console.log(arrayCarrusel);
+		arrayCarrusel.forEach(elemento =>{
+			$('#cardsCarrusel').append(`
+			<div class="col-sm-12 col-lg-4">
+			<div class="card card__margin" style="width: 8rem;">
+			  <img src= ${elemento.media.smallImageUrl} alt= ${elemento.shoe}>
+			  <div class="card-body">
+				<h6 class="card-title h6-card"> ${elemento.title}</h6>
+				<p class="card-text">$${elemento.retailPrice}</p>
+				<p class="card-text pBlanco">${elemento.colorway}</p>
+				<a href="#" class="btn carousel__button elementoIdCarrouel elementoIdCarrouselMarcas">Ver detalles.</a>
+			  </div>
+			</div>
+		  </div>`)
+		})
+	let arrayCarrusel1 = arrayDatos.filter(elemento => elemento.retailPrice >= 225 && elemento.media.smallImageUrl != null);
+		console.log(arrayCarrusel1);
+		arrayCarrusel1.forEach(elemento =>{
+			$('#cardsCarrusel1').append(`
+			<div class="col-sm-12 col-lg-4">
+			<div class="card card__margin" style="width: 8rem;">
+			  <img src= ${elemento.media.smallImageUrl} alt= ${elemento.shoe}>
+			  <div class="card-body">
+				<h6 class="card-title h6-card"> ${elemento.title}</h6>
+				<p class="card-text">$${elemento.retailPrice}</p>
+				<p class="card-text pBlanco">${elemento.colorway}</p>
+				<a href="#" class="btn carousel__button elementoIdCarrouel elementoIdCarrouselMarcas">Ver detalles.</a>
+			  </div>
+			</div>
+		  </div>`)
+		})	
+	let arrayCarrusel2 = arrayDatos.filter(elemento => elemento.retailPrice >= 80 && elemento.retailPrice <= 90 && elemento.media.smallImageUrl != null);
+		console.log(arrayCarrusel2);
+		arrayCarrusel2.forEach(elemento =>{
+			$('#cardsCarrusel2').append(`
+			<div class="col-sm-12 col-lg-4">
+			<div class="card card__margin" style="width: 8rem;">
+			  <img src= ${elemento.media.smallImageUrl} alt= ${elemento.shoe}>
+			  <div class="card-body">
+				<h6 class="card-title h6-card"> ${elemento.title}</h6>
+				<p class="card-text">$${elemento.retailPrice}</p>
+				<p class="card-text pBlanco">${elemento.colorway}</p>
+				<a href="#" class="btn carousel__button elementoIdCarrouel elementoIdCarrouselMarcas">Ver detalles.</a>
+			  </div>
+			</div>
+		  </div>`)
+		})	
 
-//     //TAMBIEN SE PUEDE HACER LA FUNCION DENTRO DEL EVENTO
-//   /*  $('#btnGuardar').on('click', function guardarLista() {
-//         localStorage.setItem("listaTareas", JSON.stringify(listaTareas));
-//         console.log("La lista se ha guardado con " + listaTareas.length + " tareas:");
-//         for (tarea of listaTareas) {
-//             console.log(tarea.toString());
-//         }
-//     })
-//     */
+	//En esta parte, una vez que el usuario haga click en el boton "ver detalles", se creara una card con los datos del par clickeado, todo esto en un html a parte
+	//Creamos el enveto click
+	$('.elementoId').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="./pages/detalles.html";
+		
+		console.log(arrayComprar);	
+	});
 
-//     //METODO shortcut CLICK(), es lo mismo que on.(click) pero mas corto
-    
-//     $('#btnReset').click(function () {
-//         console.log("Reset");
-//         localStorage.setItem("listaTareas", "");
-//     })
-    
-//     //METODO CHANGE
-//     $('#nombre').change(function(e) {
-//         if (this.value == "") {
-//             alert("Debe ingresar un nombre")
-//         }
-//     })
-//     //Usamos metodo .change de jQuery para validar descripcion
-//     $('#descripcion').change(function () {
-//         if(this.value == ""){
-//             alert("Debe ingresar una descripcion valida")
-//         }
-//     })
-
-//     //CAPTURAMOS SUBMIT()
-//     $('#formTareas').submit(function () {
-//         console.log(this);
-//         if($("#nombre").val() == "" || $("#descripcion").val() == ""){
-//             alert("Se deben ingresar un nombre y descripcion")
-//         }else{
-//             //debemos agregar
-//             //Forzamos el evento click en el boton agregar
-//             //EL METODO TRIGGER FUNCIONA PARA FORZAR UN EVENTO
-//             $('#boton').trigger('click')
-//         }
-//     })
-// })
-
-// //Cambiar algo en un grupo de nodos que traemos por selectores
-// // ocultamos los elementos seleccionados
-// /*
-// $('h1, h2, p').hide();
-// // Volvemos a visualizar los h1
-// $('h1').show();
-// */
-
-// //Camiar contenido en los html-
-// //Esto cambia el texto en todos los Parrafos
-// // $('p').html("Otro texto que se pega en todos los p");
-
-// // ESPERAMOS CARGA DEL DOM
-// $(function(){
-//     //capturamos el evento de click del boton show()
-//     $('#btnShow').click( () => $('#caja-prueba').show());
-//     //capturamos el evento de click del boton hide()
-//     $('#btnHide').click( () => $('#caja-prueba').hide());
-//     //capturamos el evento de click del boton fadeIn()
-//     $('#btnFadeIn').click( () => $('#caja-prueba').fadeIn("slow"));
-//     //capturamos el evento de click del boton fadeOut()
-//     $('#btnFadeOut').click( () => $('#caja-prueba').fadeOut("slow"));
-
-//     //Con el callback podes mandarle un metodo tras otro
-//     $("#btnCallBack").click( () => {
-//         $("#caja-prueba").fadeIn("slow", () => $("#caja-prueba").fadeOut(2000, () => $("#caja-prueba").fadeIn("fast")))
-//     })
-
-//     //capturamos el evento de click del boton SlideDown
-//     $('#btnSlideDown').click( () => $('#caja-prueba').slideDown("slow"));
-//     //capturamos el evento de click del boton slideUp
-//     $('#btnSlideUp').click( () => $('#caja-prueba').slideUp("slow"));
-//     //capturamos el evento de click del boton slideToggle
-//     $("#btnSlideToggle").click( () => $("#caja-prueba").slideToggle("slow"));
-
-
-
-//     //capturamos boton de cambiar fondo a rojo
-//     $("#btnRojo").click( () => { $("body").css("background-color", "red")});
-//     //capturamos boton de cambiar fondo a Azul
-//     $("#btnAzul").click( () => {
-//         $("body").css("background-color", "blue");
-//         // $("h1, h2, h3").css("color", "white");
-        
-        
-//     });
-//     //capturamos boton de cambiar fondo a Verde
-//     $("#btnVerde").click( () => {$("body").css("background-color", "green")});
-//     //capturamos boton de cambiar fondo a Sinfondo
-//     $("#btnSinFondo").click( () => {$("body").css("background-color", "white")});
-
-//     $(".textoAnimado").animate({ left:'250px',
-//                       opacity:'0.5',
-//                       height:'150px',
-//                       width:'150px' }, //1er parámetro propiedades 
-//                       "4000",          //2do parámetro duración
-//                                        //3er parámetro callback
-//                       function(){  
-//                         console.log("final de animación");
-//                       });
-
-//     // Asociamos la animación al click en un elemento <a>
-//     $('#btnTop').click( () => {
-//         //Animamos sus propiedades CSS con animate
-//         $('html,body').animate({
-//             scrollTop: $("body").offset().top}, 2000);} );
-
-//     $('#subtitulo').css("color", "darkgray")
-//                    .fadeOut(3000)
-//                 //USamos el metood delay para darle un tiempo a que realice la otra accion
-//                    .delay(2000)
-//                    .css("color", "dark")
-//                    .fadeIn("slow");
-// })      
-
-
-// $(function () {
-//     //Declaramos la url que vamos a usar para el GET
-//     const URLGET = "https://jsonplaceholder.typicode.com/posts"
-//     //Escuchamos el evento click del botón agregado
-//     $("#pedir").click(() => { 
-//     $.get(URLGET, function (respuesta, estado) {
-//           if(estado === "success"){
-//             let misDatos = respuesta;
-//             for (const dato of misDatos) {
-//               $("body").append(`<div class="card">
-//                                     <h5 class="card-header">ID: ${dato.id}</h5>
-//                                     <div class="card-body">
-//                                         h5 class="card-title"> ${dato.title} </h5>
-//                                         <p class="card-text"> ${dato.body} </p>
-//                                     </div>
-//                                 </div>`);
-//             }  
-//           }
-//         });
-//     });
-//     //Declaramos la información a enviar
-//     const infoPost =  { nombre: "Ana", profesion: "Programadora" };
-//     //Escuchamos el click del boton enviar
-//     $("#enviar").click( () => {
-//       $.post(URLGET, infoPost, (respuesta, estado) => {
-//         if(estado == "success"){
-//           console.log(respuesta);
-//           alert( `El usuario ${respuesta.nombre} se creo con el id: ${respuesta.id}`);
-//         }
-//       })
-//     });
-
-
-//     //Escuchamos el click del boton getFile
-//     $("#getFile").click( () => {
-//       $.getJSON('./data/datos.json', (respuesta, estado) =>{
-//         if(estado == "success"){
-//           console.log(respuesta);
-//         }
-//       });
-//     });
-
-
-//     //Capturamos el click del boton ajaxPost
-//     $("#ajaxPost").click( () => {
-//           //Utilizamos el metodo ajax de jquery con la posibilidad de manipular atributos del mensaje que enviamos a la api
-//           $.ajax({
-//             method: "POST",
-//             url: URLGET,
-//             data: infoPost,
-//             success: function(respuesta){
-//               console.log(respuesta);
-//               $("main").append(`<div class="card">
-//                                   <h5 class="card-header">ID: ${respuesta.id}</h5>
-//                                   <div class="card-body">
-//                                     <h5 class="card-title"> ${respuesta.nombre} </h5>
-//                                     <p class="card-text"> ${respuesta.profesion} </p>
-//                                   </div>
-//                                 </div>`)
-//             }
-//           })
-//     });
+	$('.elementoIdPages').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	$('.elementoIdMarcas').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="../detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	$('.elementoIdCarrouel').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="./detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	$('.elementoIdCarrouelMarcas').click( (e) => {
+		//Declaramos el array vacio
+		let arrayComprar = [];
+		console.log(e.target.parentNode.children)
+		//Creamos el objeto con la card clickeada		
+		arrayComprar.push({
+			//Con esto llegamos al innerText, al innerText del precio y tambein obtuvimos la imagen
+			"nombre": e.target.parentNode.children[0].innerText,
+			"descripcion": e.target.parentNode.children[2].innerText,
+			"precio": e.target.parentNode.children[1].innerText,
+			"img": e.target.parentNode.parentNode.children[0].currentSrc,
+		});
+		//Lo guardamos en el storage
+		localStorage.setItem("arrayComprar", JSON.stringify(arrayComprar));
+		window.location.href="../detalles.html";
+		
+		console.log(arrayComprar);	
+	});
+	//Declaramos al cardsComprar el arrayComrpar
+	let cardDetalles = JSON.parse(localStorage.getItem("arrayComprar"));
+	//Una vez que el usuario clicke el par que quiera se creara una card para poder añadirlo al carro
+	cardDetalles.forEach(elemento => {
+		$("#cardCompra").append(`		
+		<div class="col-md-12 section__compra__card cardCarrito">
+                <img src= ${elemento.img} class="img-fluid rounded-start img-compra"   alt=${elemento.nombre}>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <h5 class="card-title">${elemento.nombre}</h5>
+				  <h6 class="card-text"> Colores: ${elemento.descripcion} </h6>
+                  <div>
+                    <label for="talle">Talle:</label>
+                    <select name="talle" class="section__compra__select" id="">
+                      <option value="39">39</option>
+					  <option value="40">40</option>
+                      <option value="41">41</option>
+                      <option value="42">42</option>
+                      <option value="43">43</option>
+                      <option value="44">44</option>
+                      
+                      <option value="45">45</option>
+                    </select>
+                  </div>
+                  <p class="card-text">${elemento.precio}</p>
+                  <a href="#" class="btn section__btn addToCartButton">Añadir al carrito.</a>
+              </div>
+		`)
+		
+	});
 
 
 
+	//Desde aca empieza el carrito
+	//Llamo al boton de añadir al carro y le doy el evento click 
+	$(".addToCartButton").click(addToCartButtonClick);
 
+	//Creo la funcion para que se ejecute al darle click, en esta funcion obtengo los valores que quiero mostrar mas adelante
+	function addToCartButtonClick(e) {
+		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+		let arrayCarrito;
+		if(carrito == []){
+			arrayCarrito = [];
+		}else{
+			arrayCarrito = carrito;
+		}				
+		// Añado el contenido de la card al arrayCarrito
+		arrayCarrito.push({
+			//Traigo lo que necesito de la card
+			"cardImg": e.target.parentNode.parentNode.parentNode.children[0].currentSrc,//Busco la imagen
+			"cardNombre": e.target.parentNode.parentNode.parentNode.children[1].children[0].children[0].innerText,//Busco el nombre del producto
+			"cardTalle": e.target.parentNode.parentNode.parentNode.children[1].children[0].children[2].children[1].value,//Busco el talle
+			"cardPrecio": e.target.parentNode.parentNode.parentNode.children[1].children[0].children[3].innerText,//Busco el precio
+		});
+		//Lo guardo en el localStorage
+		localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
+		// Una vez que agregues al carro un producto te lleva directamente al html del carrito
+		// let button = e.target;
+		// let cardCompra = button.parentNode;
+		// console.log(cardCompra);
+		window.location.href="carrito.html";
+		
+	}
+	//Cambiar cantidad
+	
+	//Llamamos a la funcion
+	addProductToBuy();
+	//Creo la funcion addProductToBuy
+	function addProductToBuy() {
+		//Iba a usar esto para borrar un elemento del carrito			
+		// $("#divCarrito").html("")
+		//Ahora el arrayCarrito lo traigo y lo convierto en productosCarrito
+		let productosCarrito = JSON.parse(localStorage.getItem("arrayCarrito"));	
+		//Por cada producto crea un div con los datos de la compra
+		productosCarrito.forEach(elemento => {
+			$('#divCarrito').append(`
+				<div class="row" id="productosCarrito">
+					<div class="col-4" >
+						<div class="carritoItem d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+							<img src=${elemento.cardImg} class="carritoImg" >
+							<h6 class=" cardNombre text-truncate ml-3 mb-0">${elemento.cardNombre}</h6>
+						</div> 
+					</div> 
+					<div class="col-2" >
+						<div class="carritoItem d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+							<p class="item-price mb-0" id="precioCarrito"> ${elemento.cardPrecio}</p>
+						</div> 
+					</div> 
+					<div class="col-2" >
+						<div class="carritoItem d-flex align-items-center h-100 border-bottom pb-2 pt-3">
+							<p class="item-price mb-0"> ${elemento.cardTalle}</p> 
+						</div> 
+					</div> 
+					<div class="col-4">
+						<div class="carritoItemCantidad d-flex justify-content-around align-items-center h-100 border-bottom pb-2 pt-3">
+							<input class="cantidad" id="cantidad"type="number" value = "1">
+							<button class="btn btn-danger buttonBorrar" type= "button"> X </button> 
+						</div > 
+					</div> 			
+				</div>`);
+		});
+		precioTotal();
+		
+	};
+	// $(".comprarButton").click(comprar);
+	// function comprar() {
+	// 	let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+	// 	carrito = [];
+	// 	$("#divCarrito").html("");
+	// 	localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
+	// 	precioTotal()		
+	// }
+	//Creo el evento click para eliminar un producto
+	$(".buttonBorrar").click(eliminarProducto);
+	//Esta funcion permite que al clickear la X elimina el producto seleccionado
+	function eliminarProducto(e) {
+		e.preventDefault();
+		//Traemos los datos del localStorage
+		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+		//Con el metodo findIndex() buscamos el nom re de cada producto;
+		let borrarProducto = carrito.findIndex(elemento => elemento.cardNombre == e.target.parentNode.parentNode.parentNode.children[0].children[0].children[1].innerText)
+		//
+		carrito.splice(borrarProducto, 1);
+		//Guardamos los nuevos datos en el local storage 
+		localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
+		//Recargamos la pagina para que se demuestre que borro el producto
+		location.reload();
+		//Con el llamado a esta funcion iba  a hacer que borre sin necesidad de cargar la pagina
+		//Usando $("divCarrito").html("") y lo hacia pero solo 1 vez, despues no me tomaba los clicks
+		// addProductToBuy()
+	};
+	$(".cantidad").change(cambiarCantidad);
+	function cambiarCantidad(e) {
+		//Busco el valor del input
+		let valorInput = e.target;
+		//Esto es para que el contador no baje de cero
+		if (valorInput.value <= 0){
+			valorInput.value = 1;			
+		}
+		//LLamo a la funcion precioTotal para actualizar el precio
+		precioTotal();
+	}; 
+	function precioTotal () {
+	//Quise hacerlo de esta manera pero no entendi muy bien como funcionaba el metodo reduce()
+	// 	let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+	// 	localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
+	// 	let resultado =	carrito.reduce( (precio1, precio2) => {
+	// 		return  precio1 + precio2;
+	// 	});	
+	// 	console.log(resultado);
+	// $('.carritoTotal').append(`
+	// 	 	<p class="ml-4 mb-0" id="precioFinal"> ${resultado}</p>	
+	// `);	
+	// }
+	let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+	let total = 0;
+	const productos = carrito;
+	productos.forEach( elemento =>{
+	 const elementoPrecio =	parseFloat(elemento.cardPrecio.replace('$', ''));
+	 const cantidad = parseFloat($(".cantidad").val());
+	 total = total + elementoPrecio * cantidad;
+	});
+	$("#precioFinal").html(`$${total}`);
+	};
 
+});
 
-
-
-
-// });
