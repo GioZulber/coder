@@ -115,3 +115,11 @@ function pedidosFilter(e) {
                     </tr>`);
     }       
 }
+
+//
+$("#buttonIndex").click(formIndex);
+
+function formIndex(e) {
+    e.preventDefault
+    
+}

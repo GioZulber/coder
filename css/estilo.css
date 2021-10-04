@@ -194,6 +194,8 @@ nav {
       background-color: #ffffff;
       color: #f4511e;
       transition: all .7s; }
+  .formulario .modalForm {
+    color: #000000; }
 
 .formulario-pedidos {
   background-color: #ffffff;

@@ -180,8 +180,25 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Términos y condiciones</label>
       </div>
-      <button type="submit" class="btn form__input--color">Enviar</button>
+      <button type="submit" id ="buttonIndex"class="btn form__input--color" data-bs-toggle="modal" data-bs-target="#indexModal">Enviar</button>
     </form>
+
+    <div class="modal fade modalForm" id="indexModal" tabindex="-1" aria-labelledby="comprarModalLabel"  style="display: none;" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Gracias por suscribirse.</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <p>En breve recibira correos con todas las novedades</p>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn botonModal" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+          </div>
+      </div>
+  </div>
 
   </section>
 
@@ -244,6 +261,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
     integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./JS/pedidos.js"></script>
   <script src="./JS/main.js"></script>
 </body>
 
