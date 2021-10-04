@@ -5,7 +5,7 @@ const settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v1-sneakers.p.rapidapi.com",
-		"x-rapidapi-key": "0ad7d9e15dmshc74262e27cf3876p1f7f76jsn1c6f9e7d93b1"
+		"x-rapidapi-key": "aac0ac2a5bmsh659049576fd54bcp1b035fjsn88bfa4a855c9"
 	}
 };
 
