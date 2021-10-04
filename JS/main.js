@@ -5,7 +5,7 @@ const settings = {
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "v1-sneakers.p.rapidapi.com",
-		"x-rapidapi-key": "aac0ac2a5bmsh659049576fd54bcp1b035fjsn88bfa4a855c9"
+		"x-rapidapi-key": "0ad7d9e15dmshc74262e27cf3876p1f7f76jsn1c6f9e7d93b1"
 	}
 };
 
@@ -389,11 +389,11 @@ $.ajax(settings).done(function (response) {
 	function addToCartButtonClick(e) {
 		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
 		let arrayCarrito;
-		if(carrito == []){
-			arrayCarrito = [];
+		if(!carrito){
+			carrito = [];
 		}else{
-			arrayCarrito = carrito;
-		}				
+			arrayCarrito = carrito;	
+		};				
 		// Añado el contenido de la card al arrayCarrito
 		arrayCarrito.push({
 			//Traigo lo que necesito de la card
@@ -405,14 +405,9 @@ $.ajax(settings).done(function (response) {
 		//Lo guardo en el localStorage
 		localStorage.setItem("arrayCarrito", JSON.stringify(arrayCarrito));
 		// Una vez que agregues al carro un producto te lleva directamente al html del carrito
-		// let button = e.target;
-		// let cardCompra = button.parentNode;
-		// console.log(cardCompra);
 		window.location.href="carrito.html";
 		
-	}
-	//Cambiar cantidad
-	
+	};
 	//Llamamos a la funcion
 	addProductToBuy();
 	//Creo la funcion addProductToBuy
@@ -452,14 +447,16 @@ $.ajax(settings).done(function (response) {
 		precioTotal();
 		
 	};
-	// $(".comprarButton").click(comprar);
-	// function comprar() {
-	// 	let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
-	// 	carrito = [];
-	// 	$("#divCarrito").html("");
-	// 	localStorage.setItem("arrayCarrito", JSON.stringify(carrito));
-	// 	precioTotal()		
-	// }
+	//Llamo al boton comprar y le agrego el evento click
+	$(".comprarButton").click(comprar);
+	function comprar() {
+		//Traigo los productos del carrito
+		let carrito = JSON.parse(localStorage.getItem("arrayCarrito"));
+		carrito = [];
+		$("#divCarrito").html("");
+		localStorage.setItem("arrayCarro", JSON.stringify(carrito));
+		precioTotal()		
+	};
 	//Creo el evento click para eliminar un producto
 	$(".buttonBorrar").click(eliminarProducto);
 	//Esta funcion permite que al clickear la X elimina el producto seleccionado
